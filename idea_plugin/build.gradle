@@ -20,14 +20,18 @@ plugins {
 
 repositories {
   mavenCentral()
+  mavenLocal()
 }
 
 ext {
-  googleJavaFormatVersion = '1.8'
+  googleJavaFormatVersion = '1.9-SNAPSHOT'
 }
 
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'java'
+
+sourceCompatibility = '1.11'
+targetCompatibility = '1.11'
 
 intellij {
   pluginName = "google-java-format"
@@ -37,7 +41,7 @@ intellij {
 patchPluginXml {
   pluginDescription = "Formats source code using the google-java-format tool. This version of " +
                       "the plugin uses version ${googleJavaFormatVersion} of the tool."
-  version = "${googleJavaFormatVersion}.0.1"
+  version = "${googleJavaFormatVersion}"
   sinceBuild = '201'
   untilBuild = ''
 }
